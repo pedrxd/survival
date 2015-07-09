@@ -1,0 +1,18 @@
+Essential Plugin for Survival servers
+-------------------------------------
+What contains/do this plugin
+-------------------------------------
+-Commands
+ /tp <player> <player>     // Teleport a player
+ /oi <player>              // open the inventory of a player
+ /mute <player>            // You can mute a player
+ /home                     // You can return to your home
+ /econfig                  //open config gui
+-Tools
+ -Ride Player and Mobs
+ -Private message wich @<player> <message>
+ -KeepInventory on Death, there are three modes, Keep Inventory, No keep inventory, set your inventory on a chest.
+ -KeepXp on death, you can set on true or false.
+ 
+ This plugins is on intensive developemt (no :D), if you have some suggestion or want add some new function,
+ contact wich me or do a pull resquest.
