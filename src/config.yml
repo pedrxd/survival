@@ -1,0 +1,13 @@
+# 			CONFIG FILE
+tools:
+    privateMessage: true
+    keepXp: true
+    keepInventory: yes
+    rider:
+        Animal: false
+        Player: false
+commands:
+    CommandOi: true
+    CommandHome: true
+    CommandTp: true
+    CommandMute: true

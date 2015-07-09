@@ -1,0 +1,29 @@
+main: pedrxd.survival.Manager
+name: Survival
+version: 1.0
+author: Pedro Ruiz
+commands:
+    mute:
+        usage: /mute <player>
+        description: mute some player
+    oi:
+        usage: /oi <player>
+        description: open the inventory of a player
+    tp:
+        usage: /tp <player>
+        description: Teleport to a player
+    home:
+        usage: /home, /home set
+        description: Posicion el home del jugador
+    econfig:
+        usage: /econfig
+        description: Abrir la Config
+    tpa:
+        usage: /tpa
+        description: Solicita un tp
+    tpaccept:
+        usage: /tpaccept
+        description: Acepta un tp
+    tpdeny:
+        usage: /tpdenny
+        description: Deniega un tp
