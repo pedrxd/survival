@@ -1,5 +1,7 @@
 package pedrxd.survival;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,8 +24,10 @@ public class Manager extends JavaPlugin {
 	}
 
 	@Override
-	public void onDisable() {
-
+	public boolean onCommand(CommandSender sender, Command cmd, String label ,String[] args) {
+		
+		
+		return true;
 	}
 
 	public void registerEvent() {
@@ -43,7 +47,11 @@ public class Manager extends JavaPlugin {
 		getCommand("home").setExecutor(new CommandHome());
 		getCommand("econfig").setExecutor(new CommandEconfig());
 		getCommand("mute").setExecutor(new CommandMute());
-
+		getCommand("creative").setExecutor(new CommandCreative());
+		getCommand("survival").setExecutor(new CommandSurvival());
+		getCommand("adventure").setExecutor(new CommandAdventure());
+		getCommand("spec").setExecutor(new CommandSpectator());
+		
 	}
 
 	public void configLoad() {

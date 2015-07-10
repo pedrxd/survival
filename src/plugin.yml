@@ -18,12 +18,15 @@ commands:
     econfig:
         usage: /econfig
         description: Abrir la Config
-    tpa:
-        usage: /tpa
-        description: Solicita un tp
-    tpaccept:
-        usage: /tpaccept
-        description: Acepta un tp
-    tpdeny:
-        usage: /tpdenny
-        description: Deniega un tp
+    creative:
+        usage: /creative
+        description: Ponte en creativo
+    survival:
+        usage: /survival
+        description: Ponte en survival
+    adventure:
+        usage: /adventure
+        description: Ponte en aventura
+    spec:
+        usage: /spec
+        description: Ponte en espectador

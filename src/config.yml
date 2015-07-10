@@ -11,3 +11,7 @@ commands:
     CommandHome: true
     CommandTp: true
     CommandMute: true
+    CommandCreative: true
+    CommandSurvival: true
+    CommandAdventure: true
+    CommandSpectator: true

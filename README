@@ -8,6 +8,10 @@ What contains/do this plugin
  /mute <player>            // You can mute a player
  /home                     // You can return to your home
  /econfig                  //open config gui
+ /spec
+ /creative
+ /survival
+ /adventure
 -Tools
  -Ride Player and Mobs
  -Private message wich @<player> <message>
