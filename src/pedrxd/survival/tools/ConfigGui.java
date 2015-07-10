@@ -23,6 +23,10 @@ public class ConfigGui {
 						Manager.config.set("tools.privateMessage", !Manager.config.getBoolean("tools.privateMessage"));
 						updateInventory(p, mainGui(), e.getClickedInventory());
 					}
+					if(e.getSlot() == 3){
+						Manager.config.set("tools.showDamage", !Manager.config.getBoolean("tools.showDamage"));
+						updateInventory(p, mainGui(), e.getClickedInventory());
+					}
 					if (e.getSlot() == 4) {
 						String ic = Manager.config.getString("tools.keepInventory");
 						if (ic.equalsIgnoreCase("yes")) {
@@ -86,6 +90,16 @@ public class ConfigGui {
 		libro.setItemMeta(lidat);
 		gui.setItem(2, libro);
 
+		ItemStack espada = new ItemStack(Material.IRON_SWORD);
+		ItemMeta esdat = espada.getItemMeta();
+		if(Manager.config.getBoolean("tools.showDamage")){
+			esdat.setDisplayName(ChatColor.BLUE + "ShowDamage is "+ ChatColor.GREEN + "true");
+		}else{
+			esdat.setDisplayName(ChatColor.BLUE + "ShowDamage is "+ ChatColor.RED + "false");
+		}
+		espada.setItemMeta(esdat);
+		gui.setItem(3, espada);
+		
 		ItemStack cofre = new ItemStack(Material.CHEST);
 		ItemMeta codat = cofre.getItemMeta();
 		String ic = Manager.config.getString("tools.keepInventory");
@@ -97,6 +111,8 @@ public class ConfigGui {
 		}
 		if (ic.equalsIgnoreCase("chest")) {
 			codat.setDisplayName(ChatColor.BLUE + "Your thinks will keep on a " + ChatColor.GREEN + "chest");
+		}else{
+			
 		}
 		cofre.setItemMeta(codat);
 		gui.setItem(4, cofre);

@@ -3,6 +3,7 @@ tools:
     privateMessage: true
     keepXp: true
     keepInventory: yes
+    showDamage: true
     rider:
         Animal: false
         Player: false
