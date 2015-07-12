@@ -30,3 +30,6 @@ commands:
     spec:
         usage: /spec
         description: Ponte en espectador
+    shot:
+        usage: /shot <player>
+        description: El jugador se propulsa

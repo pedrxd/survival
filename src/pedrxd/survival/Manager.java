@@ -53,7 +53,7 @@ public class Manager extends JavaPlugin {
 		getCommand("survival").setExecutor(new CommandSurvival());
 		getCommand("adventure").setExecutor(new CommandAdventure());
 		getCommand("spec").setExecutor(new CommandSpectator());
-		
+		getCommand("shot").setExecutor(new CommandShot());
 	}
 
 	public void configLoad() {
