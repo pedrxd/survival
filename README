@@ -3,15 +3,15 @@ Essential Plugin for Survival servers
 What contains/do this plugin
 -------------------------------------
 -Commands
- /tp <player> <player>     // Teleport a player
+ /tp <player> [<player>]     // Teleport a player
  /oi <player>              // open the inventory of a player
- /mute <player>            // You can mute a player
- /home                     // You can return to your home
+ /mute [<player>]            // You can mute a player
+ /home [set]                    // You can return to your home
  /econfig                  //open config gui
- /spec
- /creative
- /survival
- /adventure
+ /spec [<player>]
+ /creative [<player>]
+ /survival [<player>]
+ /adventure [<player>]
 -Tools
  -Ride Player and Mobs
  -Private message wich @<player> <message>

@@ -49,7 +49,7 @@ public class CommandTp extends Players implements CommandExecutor {
 
 			}
 			if (args.length > 2) {
-				correctUse(p, "tp <player> /or/ tp <player> (to) <player>");
+				correctUse(p, "tp <player> [<player>]");
 			}
 
 		} else {

@@ -35,7 +35,7 @@ public Player p;
 					p.sendMessage(ChatColor.GREEN + "Has sido puesto en spectador");
 				}
 			}if(args.length >= 2){
-				correctUse(p, "spec <player>");
+				correctUse(p, "spec [<player>]");
 			}
 		}else{
 			noPerm(p);

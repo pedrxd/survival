@@ -4,13 +4,13 @@ version: 1.0
 author: Pedro Ruiz
 commands:
     mute:
-        usage: /mute <player>
+        usage: /mute [<player>]
         description: mute some player
     oi:
         usage: /oi <player>
         description: open the inventory of a player
     tp:
-        usage: /tp <player>
+        usage: /tp <player> [<player>]
         description: Teleport to a player
     home:
         usage: /home, /home set
@@ -19,14 +19,14 @@ commands:
         usage: /econfig
         description: Abrir la Config
     creative:
-        usage: /creative
+        usage: /creative [<player>]
         description: Ponte en creativo
     survival:
-        usage: /survival
+        usage: /survival [<player>]
         description: Ponte en survival
     adventure:
-        usage: /adventure
+        usage: /adventure [<player>]
         description: Ponte en aventura
     spec:
-        usage: /spec
+        usage: /spec [<player>]
         description: Ponte en espectador
