@@ -36,7 +36,7 @@ public Player p;
 					tocr.sendMessage(ChatColor.GREEN + "Has sido correctamente puesto en creativo");
 				}
 			}if(args.length >= 2){
-				correctUse(p, "creative <player>");
+				correctUse(p, "creative [<player>]");
 			}
 		}else{
 			noPerm(p);

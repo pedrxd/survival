@@ -35,7 +35,7 @@ public Player p;
 					toav.sendMessage(ChatColor.GREEN + "Has sido puesto correctamente en aventura");
 				}
 			}if(args.length >= 2){
-				correctUse(p, "adventure <player>");
+				correctUse(p, "adventure [<player>] ");
 			}
 		}else{
 			noPerm(p);

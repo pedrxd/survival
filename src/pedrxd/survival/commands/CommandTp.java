@@ -68,7 +68,6 @@ public class CommandTp extends Players implements CommandExecutor {
 					}
 				}
 			}
-
 		} else {
 			noPerm(p);
 		}

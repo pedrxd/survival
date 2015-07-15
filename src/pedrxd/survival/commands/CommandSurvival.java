@@ -36,7 +36,7 @@ public Player p;
 					tosv.sendMessage(ChatColor.GREEN + "Has sido correctamente puesto en survival");
 				}
 			}if(args.length >= 2){
-				correctUse(p, "survival <player>");
+				correctUse(p, "survival [<player>]");
 			}
 		}else{
 			noPerm(p);
