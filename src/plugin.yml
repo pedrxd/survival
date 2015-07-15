@@ -10,7 +10,7 @@ commands:
         usage: /oi <player>
         description: open the inventory of a player
     tp:
-        usage: /tp <player>
+        usage: /tp <player> [<player>], /tp [<player>] <x> <y> <z>
         description: Teleport to a player
     home:
         usage: /home, /home set
@@ -19,7 +19,7 @@ commands:
         usage: /econfig
         description: Abrir la Config
     creative:
-        usage: /creative
+        usage: /creative 
         description: Ponte en creativo
     survival:
         usage: /survival

@@ -9,11 +9,12 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
 import pedrxd.survival.Manager;
+import pedrxd.survival.api.ActionBar;
 import pedrxd.survival.api.Title;
 
 public class ShowDamage {
 	
-	public static Title tdamage = new Title();
+	public static ActionBar tdamage = new ActionBar();
 	
 	
 	public static void onDamage(EntityDamageByEntityEvent e){
@@ -42,21 +43,19 @@ public class ShowDamage {
 
 	public static void showDamage(Player p, Double hp, Boolean Arrow, Double dis){
 		if(!Arrow){
-			if(hp < 0){
-				tdamage.setSubtitle(ChatColor.GREEN + "MUERTO");
+			if(hp <= 0){
+				tdamage.setMessage(ChatColor.GREEN + ""+ ChatColor.BOLD +"MUERTO");
 
 			}else{
-				tdamage.setSubtitle(ChatColor.RED + ""+ hp.intValue() + "%");
+				tdamage.setMessage(ChatColor.RED + ""+ ChatColor.BOLD + ""+ hp.intValue() + "%");
 			}
 		}else{
-			if(hp < 0){
-				tdamage.setSubtitle("                             "  + ChatColor.GREEN+ "MUERTO"+ "                        " + ChatColor.GREEN + dis.intValue() + "m");
+			if(hp <= 0){
+				tdamage.setMessage(ChatColor.GREEN+ ""+ ChatColor.BOLD +  "MUERTO"+ "    " + ChatColor.GREEN + dis.intValue() + "m");
 			}else{
-				tdamage.setSubtitle("                              "  + ChatColor.RED + hp.intValue() + "%"+ "                        " + ChatColor.GREEN + dis.intValue() + "m ");
+				tdamage.setMessage(ChatColor.RED + "" +ChatColor.BOLD + "" + hp.intValue() + "%"+ "    " + ChatColor.GREEN + dis.intValue() + "m ");
 			}
 		}
-		tdamage.setFadeOut(30);
-		tdamage.setStay(10);
 		tdamage.sendTo(p);
 	}
 	
