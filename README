@@ -12,6 +12,7 @@ What contains/do this plugin
  /creative [<player>]
  /survival [<player>]
  /adventure [<player>]
+ /shot [<player>] || /slap [<player>]
 -Tools
  -Ride Player and Mobs
  -Private message wich @<player> <message>

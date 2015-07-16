@@ -1,10 +1,12 @@
 package pedrxd.survival.listeners;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 import pedrxd.survival.Manager;
+import pedrxd.survival.commands.CommandShot;
 import pedrxd.survival.tools.InventoryDeath;
 
 public class OnDeath implements Listener {
@@ -17,6 +19,6 @@ public class OnDeath implements Listener {
 			e.setDroppedExp(0);
 		}
 		InventoryDeath.onDeath(e);
-
+		CommandShot.stopSlap(e.getEntity());
 	}
 }

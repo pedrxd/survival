@@ -6,11 +6,9 @@ import org.bukkit.entity.Arrow;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.ProjectileHitEvent;
 
 import pedrxd.survival.Manager;
 import pedrxd.survival.api.ActionBar;
-import pedrxd.survival.api.Title;
 
 public class ShowDamage {
 	

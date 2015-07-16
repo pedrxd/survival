@@ -49,7 +49,7 @@ public class CommandTp extends Players implements CommandExecutor {
 				}
 			}
 			if (args.length == 3) {
-				if(isNumeric(args[0]) && isNumeric(args[1]) && isNumeric(args[2])){
+				if(Manager.isNumeric(args[0]) && Manager.isNumeric(args[1]) && Manager.isNumeric(args[2])){
 					
 					Location loc = new Location(p.getWorld(), Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]));
 					p.teleport(loc);
@@ -60,7 +60,7 @@ public class CommandTp extends Players implements CommandExecutor {
 			}if(args.length == 4){
 				Player totp = conPlayer(p, args[0], true);
 				if(totp != null){
-					if(isNumeric(args[1]) && isNumeric(args[2]) && isNumeric(args[3])){
+					if(Manager.isNumeric(args[1]) && Manager.isNumeric(args[2]) && Manager.isNumeric(args[3])){
 						Location loc = new Location(p.getWorld(), Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
 						totp.teleport(loc);
 					}else{
@@ -73,18 +73,6 @@ public class CommandTp extends Players implements CommandExecutor {
 		}
 
 		return true;
-	}
-	public static boolean isNumeric(String str)  
-	{  
-	  try  
-	  {  
-	    Double.parseDouble(str);  
-	  }  
-	  catch(NumberFormatException nfe)  
-	  {  
-	    return false;  
-	  }  
-	  return true;  
 	}
 
 }

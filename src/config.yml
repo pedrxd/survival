@@ -16,3 +16,4 @@ commands:
     CommandSurvival: true
     CommandAdventure: true
     CommandSpectator: true
+    CommandShot: true

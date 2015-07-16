@@ -2,6 +2,7 @@ package pedrxd.survival;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,6 +17,8 @@ public class Manager extends JavaPlugin {
 
 	public static PluginFile home;
 	public static PluginFile config;
+	
+
 
 	@Override
 	public void onEnable() {
@@ -53,6 +56,10 @@ public class Manager extends JavaPlugin {
 		getCommand("survival").setExecutor(new CommandSurvival());
 		getCommand("adventure").setExecutor(new CommandAdventure());
 		getCommand("spec").setExecutor(new CommandSpectator());
+		getCommand("shot").setExecutor(new CommandShot(this));
+		getCommand("slap").setExecutor(new CommandShot(this));
+
+
 		
 	}
 
@@ -61,6 +68,19 @@ public class Manager extends JavaPlugin {
 		saveConfig();
 		config = new PluginFile(this, "config.yml");
 		home = new PluginFile(this, "home.yml");
+	}
+	
+	public static boolean isNumeric(String str)  
+	{  
+	  try  
+	  {  
+	    Double.parseDouble(str);  
+	  }  
+	  catch(NumberFormatException nfe)  
+	  {  
+	    return false;  
+	  }  
+	  return true;  
 	}
 
 }
