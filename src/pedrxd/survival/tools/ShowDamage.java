@@ -16,7 +16,7 @@ public class ShowDamage {
 	
 	
 	public static void onDamage(EntityDamageByEntityEvent e){
-		if(Manager.config.getBoolean("tools.showDamage")){
+		if(Manager.config.getBoolean("tools.showDamage") && e.getEntity() instanceof LivingEntity){
 		if(e.getDamager() instanceof Player){
 			Player p = (Player) e.getDamager();
 			if(e.getEntity() instanceof LivingEntity){

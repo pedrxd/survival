@@ -9,9 +9,6 @@ commands:
     oi:
         usage: /oi <player>
         description: open the inventory of a player
-    tp:
-        usage: /tp <player> [<player>], /tp [<player>] <x> <y> <z>
-        description: Teleport
     home:
         usage: /home, /home set
         description: Posicion el home del jugador
