@@ -1,6 +1,5 @@
 package pedrxd.survival.commands;
 
-import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -39,7 +38,7 @@ public class CommandHome extends Players implements CommandExecutor {
 					Location homeloc = new Location(Bukkit.getWorld(arg[0]), parsed[0], parsed[1], parsed[2]);
 					p.teleport(homeloc);
 				} else {
-					p.sendMessage(ChatColor.RED + "Debes primero definir tu home; /home set");
+					p.sendMessage(Manager.setMessage("a8"));
 				}
 			}
 			if (args.length == 1) {
@@ -48,7 +47,7 @@ public class CommandHome extends Players implements CommandExecutor {
 					String locstr = homeloc.getWorld().getName() + " " + homeloc.getX() + " " + homeloc.getY() + " " + homeloc.getZ();
 					Manager.home.set("homelocs." + p.getUniqueId().toString(), locstr);
 					Manager.home.save();
-					p.sendMessage(ChatColor.GREEN + "Home puesto correctamente en tu posicion");
+					p.sendMessage(Manager.setMessage("a9"));
 				} else {
 					correctUse(p, "home   /home set   /home reload");
 				}

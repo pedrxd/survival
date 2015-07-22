@@ -2,8 +2,6 @@ package pedrxd.survival.commands;
 
 import java.util.HashMap;
 
-import net.md_5.bungee.api.ChatColor;
-
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -80,7 +78,7 @@ public class CommandShot extends Players implements CommandExecutor{
 		loc.setYaw((float) (Math.floor(Math.random() * 360) - 180));
 		p.teleport(loc);
 		p.setVelocity(randomVector());
-		p.sendMessage(ChatColor.GREEN + "You get SLAPEEEED");
+		p.sendMessage(Manager.setMessage("b4"));
 	}
 	public static void stopSlap(Player p){
 		if(CommandShot.forslap.containsKey(p)){

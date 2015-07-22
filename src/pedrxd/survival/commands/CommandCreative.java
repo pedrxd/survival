@@ -1,6 +1,5 @@
 package pedrxd.survival.commands;
 
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -28,12 +27,12 @@ public Player p;
 		if(p.hasPermission("survival.creative")){
 			if(args.length == 0){
 			 p.setGameMode(GameMode.CREATIVE);	
-			 p.sendMessage(ChatColor.GREEN + "Has sido correctamente puesto en creativo");
+			 p.sendMessage(Manager.setMessage("a7"));
 			}if(args.length == 1){
 				Player tocr = conPlayer(p, args[0], true);
 				if(tocr != null){
 					tocr.setGameMode(GameMode.CREATIVE);
-					tocr.sendMessage(ChatColor.GREEN + "Has sido correctamente puesto en creativo");
+					tocr.sendMessage(Manager.setMessage("a7"));
 				}
 			}if(args.length >= 2){
 				correctUse(p, "creative [<player>]");

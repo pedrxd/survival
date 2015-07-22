@@ -1,6 +1,5 @@
 package pedrxd.survival.commands;
 
-import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -28,12 +27,12 @@ public Player p;
 		if(p.hasPermission("survival.survival")){
 			if(args.length == 0){
 				p.setGameMode(GameMode.SURVIVAL);
-				p.sendMessage(ChatColor.GREEN + "Has sido correctamente puesto en survival");
+				p.sendMessage(Manager.setMessage("b6"));
 			}if(args.length == 1){
 				Player tosv = conPlayer(p,args[0], true);
 				if(tosv != null){
 					tosv.setGameMode(GameMode.SURVIVAL);
-					tosv.sendMessage(ChatColor.GREEN + "Has sido correctamente puesto en survival");
+					tosv.sendMessage(Manager.setMessage("b6"));
 				}
 			}if(args.length >= 2){
 				correctUse(p, "survival [<player>]");

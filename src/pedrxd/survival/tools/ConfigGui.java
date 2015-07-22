@@ -60,6 +60,8 @@ public class ConfigGui {
 					if (e.getSlot() == 6) {
 						Manager.config.set("tools.rider.Animal",!Manager.config.getBoolean("tools.rider.Animal"));
 						updateInventory(p, playerGui(), e.getClickedInventory());
+					}if(e.getSlot() == 9){
+						updateInventory(p, mainGui(), e.getClickedInventory());
 					}
 					e.setCancelled(true);
 				}
@@ -83,9 +85,9 @@ public class ConfigGui {
 		ItemStack libro = new ItemStack(Material.BOOK);
 		ItemMeta lidat = libro.getItemMeta();
 		if (Manager.config.getBoolean("tools.privateMessage")) {
-			lidat.setDisplayName(ChatColor.BLUE + "PrivateMessage is "+ ChatColor.GREEN + "true");
+			lidat.setDisplayName(Manager.setMessage("b7"));
 		} else {
-			lidat.setDisplayName(ChatColor.BLUE + "PrivateMessage is "+ ChatColor.RED + "false");
+			lidat.setDisplayName(Manager.setMessage("b8"));
 		}
 		libro.setItemMeta(lidat);
 		gui.setItem(2, libro);
@@ -93,9 +95,9 @@ public class ConfigGui {
 		ItemStack espada = new ItemStack(Material.IRON_SWORD);
 		ItemMeta esdat = espada.getItemMeta();
 		if(Manager.config.getBoolean("tools.showDamage")){
-			esdat.setDisplayName(ChatColor.BLUE + "ShowDamage is "+ ChatColor.GREEN + "true");
+			esdat.setDisplayName(Manager.setMessage("b9"));
 		}else{
-			esdat.setDisplayName(ChatColor.BLUE + "ShowDamage is "+ ChatColor.RED + "false");
+			esdat.setDisplayName(Manager.setMessage("c1"));
 		}
 		espada.setItemMeta(esdat);
 		gui.setItem(3, espada);
@@ -104,13 +106,13 @@ public class ConfigGui {
 		ItemMeta codat = cofre.getItemMeta();
 		String ic = Manager.config.getString("tools.keepInventory");
 		if (ic.equalsIgnoreCase("yes")) {
-			codat.setDisplayName(ChatColor.BLUE + "You" + ChatColor.GREEN + " keep" + ChatColor.BLUE + " the inventory");
+			codat.setDisplayName(Manager.setMessage("c2"));
 		}
 		if (ic.equalsIgnoreCase("no")) {
-			codat.setDisplayName(ChatColor.BLUE + "You" + ChatColor.RED + " lost" + ChatColor.BLUE + " the inventory");
+			codat.setDisplayName(Manager.setMessage("c3"));
 		}
 		if (ic.equalsIgnoreCase("chest")) {
-			codat.setDisplayName(ChatColor.BLUE + "Your thinks will keep on a " + ChatColor.GREEN + "chest");
+			codat.setDisplayName(Manager.setMessage("c4"));
 		}else{
 			
 		}
@@ -120,16 +122,16 @@ public class ConfigGui {
 		ItemStack bslime = new ItemStack(Material.SLIME_BALL);
 		ItemMeta bsdat = bslime.getItemMeta();
 		if (Manager.config.getBoolean("tools.keepXp")) {
-			bsdat.setDisplayName(ChatColor.BLUE + "KeepXp is " + ChatColor.GREEN + "true");
+			bsdat.setDisplayName(Manager.setMessage("c5"));
 		} else {
-			bsdat.setDisplayName(ChatColor.BLUE + "KeepXp is " + ChatColor.RED + "false");
+			bsdat.setDisplayName(Manager.setMessage("c6"));
 		}
 		bslime.setItemMeta(bsdat);
 		gui.setItem(6, bslime);
 
 		ItemStack head = new ItemStack(Material.SADDLE);
 		ItemMeta hedat = head.getItemMeta();
-		hedat.setDisplayName(ChatColor.BLUE + "Enter on PlayerRider config");
+		hedat.setDisplayName(Manager.setMessage("c7"));
 		head.setItemMeta(hedat);
 		gui.setItem(13, head);
 
@@ -137,30 +139,34 @@ public class ConfigGui {
 	}
 
 	public static Inventory playerGui() {
-		Inventory gui = Bukkit.createInventory(null, 9, ChatColor.GREEN
+		Inventory gui = Bukkit.createInventory(null, 18, ChatColor.GREEN
 				+ "Config");
 
 		ItemStack player = new ItemStack(Material.DIAMOND_HELMET);
 		ItemMeta pldat = player.getItemMeta();
 		if (Manager.config.getBoolean("tools.rider.Player")) {
-			pldat.setDisplayName(ChatColor.BLUE + "Ride on Player is " + ChatColor.GREEN + "true");
+			pldat.setDisplayName(Manager.setMessage("c8").replaceAll("%that", "player"));
 		} else {
-			pldat.setDisplayName(ChatColor.BLUE + "Ride on Player is " + ChatColor.RED + "false");
+			pldat.setDisplayName(Manager.setMessage("c9").replaceAll("%that", "player"));
 		}
 		player.setItemMeta(pldat);
 		gui.setItem(2, player);
 
 		ItemStack animal = new ItemStack(Material.WHEAT);
 		ItemMeta andat = animal.getItemMeta();
-
 		if (Manager.config.getBoolean("tools.rider.Animal")) {
-			andat.setDisplayName(ChatColor.BLUE + "Ride on Animal is " + ChatColor.GREEN + "true");
+			andat.setDisplayName(Manager.setMessage("c8").replaceAll("%that", "animal"));
 		} else {
-			andat.setDisplayName(ChatColor.BLUE + "Ride on Animal is " 	+ ChatColor.RED + "false");
+			andat.setDisplayName(Manager.setMessage("c9").replaceAll("%that", "animal"));
 		}
 		animal.setItemMeta(andat);
 		gui.setItem(6, animal);
 
+		ItemStack cartel = new ItemStack(Material.SIGN);
+		ItemMeta cadat = cartel.getItemMeta();
+		cadat.setDisplayName(Manager.setMessage("d6"));
+		cartel.setItemMeta(cadat);
+		gui.setItem(9, cartel);
 		return gui;
 	}
 }

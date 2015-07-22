@@ -2,7 +2,6 @@ package pedrxd.survival.commands;
 
 import java.util.ArrayList;
 
-import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -49,10 +48,10 @@ public class CommandMute extends Players implements CommandExecutor {
 	public void muteHim(Player p) {
 		if (mute.contains(p)) {
 			mute.remove(p);
-			p.sendMessage(ChatColor.GREEN + "Has sido des-muteado");
+			p.sendMessage(Manager.setMessage("b1"));
 		} else {
 			mute.add(p);
-			p.sendMessage(ChatColor.RED + "Has sido muteado");
+			p.sendMessage(Manager.setMessage("b2"));
 		}
 	}
 

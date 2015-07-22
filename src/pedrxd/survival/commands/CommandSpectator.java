@@ -1,6 +1,5 @@
 package pedrxd.survival.commands;
 
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,12 +26,12 @@ public Player p;
 		if(p.hasPermission("survival.spectator")){
 			if(args.length == 0){
 				p.setGameMode(GameMode.SPECTATOR);
-				p.sendMessage(ChatColor.GREEN + "Has sido puesto en spectador");
+				p.sendMessage(Manager.setMessage("b5"));
 			}if(args.length == 1){
 				Player tosp = conPlayer(p, args[0], true);
 				if(tosp != null){
 					p.setGameMode(GameMode.SPECTATOR);
-					p.sendMessage(ChatColor.GREEN + "Has sido puesto en spectador");
+					p.sendMessage(Manager.setMessage("b5"));
 				}
 			}if(args.length >= 2){
 				correctUse(p, "spec [<player>]");

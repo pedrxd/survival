@@ -3,7 +3,6 @@ Essential Plugin for Survival servers
 What contains/do this plugin
 -------------------------------------
 -Commands
- /tp <player> [<player>]     // Teleport a player
  /oi <player>              // open the inventory of a player
  /mute [<player>]            // You can mute a player
  /home [set]                    // You can return to your home

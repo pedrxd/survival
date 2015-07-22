@@ -1,6 +1,5 @@
 package pedrxd.survival.commands;
 
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,12 +26,12 @@ public Player p;
 		if(p.hasPermission("survival.adventure")){
 			if(args.length == 0){
 				p.setGameMode(GameMode.ADVENTURE);
-				p.sendMessage(ChatColor.GREEN + "Has sido puesto correctamente en adventura");
+				p.sendMessage(Manager.setMessage("a6"));
 			}if(args.length == 1){
 				Player toav = conPlayer(p, args[0], true);
 				if(toav !=null){
 					toav.setGameMode(GameMode.ADVENTURE);
-					toav.sendMessage(ChatColor.GREEN + "Has sido puesto correctamente en aventura");
+					toav.sendMessage(Manager.setMessage("a6"));
 				}
 			}if(args.length >= 2){
 				correctUse(p, "adventure [<player>] ");

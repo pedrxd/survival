@@ -1,7 +1,6 @@
 package pedrxd.survival;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,12 +11,13 @@ import pedrxd.survival.listeners.OnDeath;
 import pedrxd.survival.listeners.OnEntityDamage;
 import pedrxd.survival.listeners.OnInventory;
 import pedrxd.survival.listeners.OnPlayerInteract;
-import pedrxd.survival.tools.TpNoAllName;
 
 public class Manager extends JavaPlugin {
 
 	public static PluginFile home;
 	public static PluginFile config;
+	public static PluginFile lang;
+	
 	
 
 
@@ -28,12 +28,6 @@ public class Manager extends JavaPlugin {
 		registerCommand();
 	}
 
-	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label ,String[] args) {
-		
-		
-		return true;
-	}
 
 	public void registerEvent() {
 
@@ -63,23 +57,27 @@ public class Manager extends JavaPlugin {
 	}
 
 	public void configLoad() {
-		getConfig().options().copyDefaults(true);
-		saveConfig();
-		config = new PluginFile(this, "config.yml");
+
+		config = new PluginFile(this, "config.yml", "config.yml");
 		home = new PluginFile(this, "home.yml");
+		lang = new PluginFile(this, "lang.yml", "lang.yml");
+		
+		
+	
+
+	}
+	public static String setMessage(String index){
+		return ChatColor.translateAlternateColorCodes('&', lang.getString(index));
 	}
 	
 	public static boolean isNumeric(String str)  
-	{  
-	  try  
+	{
+		try  
 	  {  
 	    Double.parseDouble(str);  
-	  }  
-	  catch(NumberFormatException nfe)  
-	  {  
+	  }catch(NumberFormatException nfe){  
 	    return false;  
 	  }  
 	  return true;  
 	}
-
 }

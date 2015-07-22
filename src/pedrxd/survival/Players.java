@@ -7,7 +7,7 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-public class Players {
+public class Players{
 	public static Player conPlayer(Player p, String player, boolean message) {
 		ArrayList<Player> haveThat = new ArrayList<Player>();
 		for (Player pl : Bukkit.getOnlinePlayers()) {
@@ -22,7 +22,7 @@ public class Players {
 		}
 		if (haveThat.isEmpty()) {
 			if (message) {
-				p.sendMessage(ChatColor.RED + "El jugador no se a encontrado");
+				p.sendMessage(Manager.setMessage("a1"));
 			}
 			return null;
 		}
@@ -31,7 +31,7 @@ public class Players {
 		}
 		if (haveThat.size() > 1) {
 			if (message) {
-				p.sendMessage(ChatColor.RED	+ "Se han encontrado unas coincidencias:");
+				p.sendMessage(Manager.setMessage("a2"));
 				for (Player coin : haveThat) {
 					p.sendMessage(ChatColor.GOLD + "--> " + coin.getName());
 				}
@@ -43,21 +43,21 @@ public class Players {
 
 	public static void disComm(Player p) {
 		if (p != null) {
-			p.sendMessage(ChatColor.RED + "El comando esta desabilitado");
+			p.sendMessage(Manager.setMessage("a3"));
 		} else {
-			System.out.println("El comando esta desabilitado");
+			System.out.println(Manager.setMessage("a3"));
 		}
 	}
 
 	public static void noPerm(Player p) {
-		p.sendMessage(ChatColor.RED + "No tienes permisos");
+		p.sendMessage(Manager.setMessage("a4"));
 	}
 
 	public static void correctUse(Player p, String usage) {
 		if (p != null) {
-			p.sendMessage(ChatColor.RED + "Usage /" + usage);
+			p.sendMessage(Manager.setMessage("a5").replace("%correctuse", usage));
 		} else {
-			System.out.println("Usage / " + usage);
+			System.out.println(Manager.setMessage("a5").replace("%correctuse", usage));
 		}
 
 	}

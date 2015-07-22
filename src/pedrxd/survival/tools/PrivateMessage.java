@@ -31,7 +31,7 @@ public class PrivateMessage extends Players {
 								
 							}
 						} else {
-							e.getPlayer().sendMessage(ChatColor.RED + "Esta funcion esta desabilitada");
+							e.getPlayer().sendMessage(Manager.setMessage("d5"));
 						}
 							e.setCancelled(true);
 					}

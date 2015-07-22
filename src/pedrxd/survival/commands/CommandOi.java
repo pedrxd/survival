@@ -1,6 +1,5 @@
 package pedrxd.survival.commands;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -35,7 +34,7 @@ public class CommandOi extends Players implements CommandExecutor {
 					if (!foropen.hasPermission("survival.nooi")) {
 						p.openInventory(foropen.getInventory());
 					} else {
-						p.sendMessage(ChatColor.RED + "Al jugador mencionado no le puedes abrir el inventario");
+						p.sendMessage(Manager.setMessage("b3"));
 					}
 				}
 			}

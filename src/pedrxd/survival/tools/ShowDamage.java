@@ -1,7 +1,5 @@
 package pedrxd.survival.tools;
 
-import net.md_5.bungee.api.ChatColor;
-
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -42,16 +40,17 @@ public class ShowDamage {
 	public static void showDamage(Player p, Double hp, Boolean Arrow, Double dis){
 		if(!Arrow){
 			if(hp <= 0){
-				tdamage.setMessage(ChatColor.GREEN + ""+ ChatColor.BOLD +"MUERTO");
+				tdamage.setMessage(Manager.setMessage("d1"));
 
 			}else{
-				tdamage.setMessage(ChatColor.RED + ""+ ChatColor.BOLD + ""+ hp.intValue() + "%");
+				tdamage.setMessage(Manager.setMessage("d2").replaceAll("%hp",  Integer.toString(hp.intValue())));
 			}
+			
 		}else{
 			if(hp <= 0){
-				tdamage.setMessage(ChatColor.GREEN+ ""+ ChatColor.BOLD +  "MUERTO"+ "    " + ChatColor.GREEN + dis.intValue() + "m");
+				tdamage.setMessage(Manager.setMessage("d4").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue())));
 			}else{
-				tdamage.setMessage(ChatColor.RED + "" +ChatColor.BOLD + "" + hp.intValue() + "%"+ "    " + ChatColor.GREEN + dis.intValue() + "m ");
+				tdamage.setMessage(Manager.setMessage("d3").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue())));
 			}
 		}
 		tdamage.sendTo(p);
