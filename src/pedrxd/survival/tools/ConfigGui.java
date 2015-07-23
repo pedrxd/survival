@@ -27,7 +27,7 @@ public class ConfigGui {
 						Manager.config.set("tools.showDamage", !Manager.config.getBoolean("tools.showDamage"));
 						updateInventory(p, mainGui(), e.getClickedInventory());
 					}
-					if (e.getSlot() == 4) {
+					if (e.getSlot() == 5) {
 						String ic = Manager.config.getString("tools.keepInventory");
 						if (ic.equalsIgnoreCase("yes")) {
 							Manager.config.set("tools.keepInventory", "chest");
@@ -41,6 +41,9 @@ public class ConfigGui {
 						updateInventory(p, mainGui(), e.getClickedInventory());
 
 					}
+					if (e.getSlot() == 14) {
+						updateInventory(p, tabMenuGui(), e.getClickedInventory());
+					}
 					if (e.getSlot() == 6) {
 						Manager.config.set("tools.keepXp",!Manager.config.getBoolean("tools.keepXp"));
 						updateInventory(p, mainGui(), e.getClickedInventory());
@@ -50,7 +53,6 @@ public class ConfigGui {
 						updateInventory(p, playerGui(), e.getClickedInventory());
 
 					}
-					e.setCancelled(true);
 				}
 				if (e.getInventory().contains(Material.WHEAT)) {
 					if (e.getSlot() == 2) {
@@ -60,11 +62,19 @@ public class ConfigGui {
 					if (e.getSlot() == 6) {
 						Manager.config.set("tools.rider.Animal",!Manager.config.getBoolean("tools.rider.Animal"));
 						updateInventory(p, playerGui(), e.getClickedInventory());
-					}if(e.getSlot() == 9){
-						updateInventory(p, mainGui(), e.getClickedInventory());
 					}
-					e.setCancelled(true);
+				} 
+				if(e.getInventory().contains(Material.IRON_BOOTS)){
+					if(e.getSlot() == 2){
+						TabListJoin.editTabMenu(p, 1);
+					}if(e.getSlot() == 6){
+						TabListJoin.editTabMenu(p, 2);
+					}
 				}
+				if(e.getSlot() == 9){
+					updateInventory(p, mainGui(), e.getClickedInventory());
+				}
+				e.setCancelled(true);
 			}
 		}
 	}
@@ -117,8 +127,14 @@ public class ConfigGui {
 			
 		}
 		cofre.setItemMeta(codat);
-		gui.setItem(4, cofre);
+		gui.setItem(5, cofre);
 
+		ItemStack frame = new ItemStack(Material.ITEM_FRAME);
+		ItemMeta frdat = frame.getItemMeta();
+		frdat.setDisplayName(Manager.setMessage("d7"));
+		frame.setItemMeta(frdat);
+		gui.setItem(14, frame);
+		
 		ItemStack bslime = new ItemStack(Material.SLIME_BALL);
 		ItemMeta bsdat = bslime.getItemMeta();
 		if (Manager.config.getBoolean("tools.keepXp")) {
@@ -167,6 +183,30 @@ public class ConfigGui {
 		cadat.setDisplayName(Manager.setMessage("d6"));
 		cartel.setItemMeta(cadat);
 		gui.setItem(9, cartel);
+		return gui;
+	}
+	public static Inventory tabMenuGui(){
+		Inventory gui = Bukkit.createInventory(null, 18, ChatColor.GREEN
+				+ "Config");
+		ItemStack head = new ItemStack(Material.IRON_HELMET);
+		ItemMeta hedat = head.getItemMeta();
+		hedat.setDisplayName(Manager.setMessage("d8"));
+		head.setItemMeta(hedat);
+		gui.setItem(2, head);
+		
+		ItemStack foot = new ItemStack(Material.IRON_BOOTS);
+		ItemMeta fodat = foot.getItemMeta();
+		fodat.setDisplayName(Manager.setMessage("d9"));
+		foot.setItemMeta(fodat);
+		gui.setItem(6, foot);
+		
+		ItemStack cartel = new ItemStack(Material.SIGN);
+		ItemMeta cadat = cartel.getItemMeta();
+		cadat.setDisplayName(Manager.setMessage("d6"));
+		cartel.setItemMeta(cadat);
+		gui.setItem(9, cartel);
+		
+		
 		return gui;
 	}
 }

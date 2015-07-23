@@ -10,10 +10,12 @@ tools:
 commands:
     CommandOi: true
     CommandHome: true
-    CommandTp: true
     CommandMute: true
     CommandCreative: true
     CommandSurvival: true
     CommandAdventure: true
     CommandSpectator: true
     CommandShot: true
+TabList:
+  Header: '&3Survival &21.0V\n &9 ------------------------'
+  Footer: '&9--------------------\n &3Development By Pedrxd'

@@ -10,6 +10,7 @@ import pedrxd.survival.listeners.OnCommandExecute;
 import pedrxd.survival.listeners.OnDeath;
 import pedrxd.survival.listeners.OnEntityDamage;
 import pedrxd.survival.listeners.OnInventory;
+import pedrxd.survival.listeners.OnJoin;
 import pedrxd.survival.listeners.OnPlayerInteract;
 
 public class Manager extends JavaPlugin {
@@ -38,6 +39,7 @@ public class Manager extends JavaPlugin {
 		pm.registerEvents(new OnInventory(), this);
 		pm.registerEvents(new OnEntityDamage(), this);
 		pm.registerEvents(new OnCommandExecute(), this);
+		pm.registerEvents(new OnJoin(), this);
 
 	}
 
