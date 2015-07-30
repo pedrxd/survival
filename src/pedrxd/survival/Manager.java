@@ -7,11 +7,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pedrxd.survival.commands.*;
 import pedrxd.survival.listeners.OnChat;
 import pedrxd.survival.listeners.OnCommandExecute;
-import pedrxd.survival.listeners.OnDeath;
 import pedrxd.survival.listeners.OnEntityDamage;
 import pedrxd.survival.listeners.OnInventory;
-import pedrxd.survival.listeners.OnJoin;
-import pedrxd.survival.listeners.OnPlayerInteract;
+import pedrxd.survival.listeners.OnPlayer;
+
 
 public class Manager extends JavaPlugin {
 
@@ -33,13 +32,12 @@ public class Manager extends JavaPlugin {
 	public void registerEvent() {
 
 		PluginManager pm = getServer().getPluginManager();
-		pm.registerEvents(new OnPlayerInteract(), this);
 		pm.registerEvents(new OnChat(), this);
-		pm.registerEvents(new OnDeath(), this);
 		pm.registerEvents(new OnInventory(), this);
 		pm.registerEvents(new OnEntityDamage(), this);
 		pm.registerEvents(new OnCommandExecute(), this);
-		pm.registerEvents(new OnJoin(), this);
+		pm.registerEvents(new OnPlayer(), this);
+
 
 	}
 
@@ -55,6 +53,12 @@ public class Manager extends JavaPlugin {
 		getCommand("spec").setExecutor(new CommandSpectator());
 		getCommand("shot").setExecutor(new CommandShot(this));
 		getCommand("slap").setExecutor(new CommandShot(this));
+		getCommand("night").setExecutor(new CommandNight());
+		getCommand("day").setExecutor(new CommandDay());
+		getCommand("send").setExecutor(new CommandSend());
+		getCommand("accept").setExecutor(new CommandSend());
+		getCommand("denny").setExecutor(new CommandSend());
+
 
 	}
 

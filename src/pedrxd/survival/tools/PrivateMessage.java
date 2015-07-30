@@ -25,10 +25,9 @@ public class PrivateMessage extends Players {
 									allme = allme + arg[i];
 								}
 								e.getPlayer().sendMessage(
-										ChatColor.BOLD + "[PM] "+ ChatColor.BLUE+ e.getPlayer().getName()+ ChatColor.GOLD + " --> "+ ChatColor.BLUE+ pmto.getName());
+								ChatColor.BOLD + "[PM] "+ ChatColor.BLUE+ e.getPlayer().getName()+ ChatColor.GOLD + " --> "+ ChatColor.BLUE+ pmto.getName());
 								pmto.sendMessage(ChatColor.BOLD + "[PM] "+ ChatColor.BLUE + e.getPlayer().getName() + ": "+ ChatColor.AQUA + allme);
 								pmto.playSound(pmto.getLocation(), Sound.NOTE_PIANO, 1, 100);
-								
 							}
 						} else {
 							e.getPlayer().sendMessage(Manager.setMessage("d5"));

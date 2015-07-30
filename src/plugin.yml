@@ -33,3 +33,18 @@ commands:
     slap:
         usage: /slap [<player>]
         description: Shot a player to the sky
+    night:
+        usage: /night [<world>]
+        description: Set the world at night time
+    day:
+        usage: /day [<world>]
+        description: Set the world at day time
+    send:
+        usage: /send <player>
+        description: Send a item to a player.
+    accept:
+        usage: /accept
+        description: Accept a petition
+    denny:
+        usage: /denny
+        description: Denny a petition

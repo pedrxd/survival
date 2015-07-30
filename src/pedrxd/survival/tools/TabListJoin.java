@@ -1,6 +1,5 @@
 package pedrxd.survival.tools;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import net.md_5.bungee.api.ChatColor;
