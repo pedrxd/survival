@@ -12,8 +12,8 @@ import pedrxd.survival.tools.TabListJoin;
 public class OnChat extends Players implements Listener {
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent e) {
+		TabListJoin.onChat(e);
 		PrivateMessage.PrivateMessage(e);
 		CommandMute.onChat(e);
-		TabListJoin.onChat(e);
 	}
 }

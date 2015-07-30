@@ -12,6 +12,9 @@ What contains/do this plugin
  /survival [<player>]
  /adventure [<player>]
  /shot [<player>] || /slap [<player>]
+ /day [<world>] 
+ /night [<world>]
+ /send <player>
 -Tools
  -Ride Player and Mobs
  -Private message wich @<player> <message>

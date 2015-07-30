@@ -6,13 +6,11 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import pedrxd.survival.Manager;
@@ -22,7 +20,6 @@ public class CommandSend extends Players implements CommandExecutor {
 public Player p;
 public static HashMap<Player, Player> sendList = new HashMap();
 public static HashMap<Player, Player> resquestList = new HashMap();
-public static HashMap<Player, Integer> waitTime = new HashMap();
 
 static TextComponent acceptmessage = new TextComponent(Manager.setMessage("f9"));
 static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
@@ -131,6 +128,5 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 	}
 	public static void removeFromWaitLists(Player sendto){
 		resquestList.remove(sendto);
-		waitTime.remove(sendto);
 	}
 }
