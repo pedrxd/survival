@@ -1,6 +1,6 @@
 main: pedrxd.survival.Manager
 name: Survival
-version: 2.0V
+version: 1.0V
 author: Pedro Ruiz
 commands:
     mute:
@@ -11,22 +11,22 @@ commands:
         description: open the inventory of a player
     home:
         usage: /home, /home set
-        description: Posicion el home del jugador
+        description: Home
     econfig:
         usage: /econfig
-        description: Abrir la Config
+        description: Open the config
     creative:
         usage: /creative [<player>]
-        description: Ponte en creativo
+        description: Set on creative
     survival:
         usage: /survival [<player>]
-        description: Ponte en survival
+        description: Set on survival
     adventure:
         usage: /adventure [<player>]
-        description: Ponte en aventura
+        description: Set on adventure
     spec:
         usage: /spec [<player>]
-        description: Ponte en espectador
+        description: Set on spectator
     shot:
         usage: /shot [<player>]
         description: Shot a player to the sky

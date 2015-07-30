@@ -4,7 +4,7 @@ What contains/do this plugin
 -------------------------------------
 -Commands
  /oi <player>              // open the inventory of a player
- /mute [<player>]            // You can mute a player
+ /mute [<player>]            
  /home [set]                    // You can return to your home
  /econfig                  //open config gui
  /spec [<player>]
