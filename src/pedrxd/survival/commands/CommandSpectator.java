@@ -30,7 +30,8 @@ public Player p;
 			}if(args.length == 1){
 				Player tosp = conPlayer(p, args[0], true);
 				if(tosp != null){
-					p.setGameMode(GameMode.SPECTATOR);
+					tosp.setGameMode(GameMode.SPECTATOR);
+					tosp.sendMessage(Manager.setMessage("b5"));
 					p.sendMessage(Manager.setMessage("b5"));
 				}
 			}if(args.length >= 2){

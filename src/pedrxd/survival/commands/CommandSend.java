@@ -85,7 +85,7 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 	}
 	public static void resquestSend(Player p, Player sendto){
 		if(!sendList.containsKey(sendto)){
-			if(p.equals(sendto)){
+			if(!p.equals(sendto)){
 				dennymessage.setColor(ChatColor.RED);
 				dennymessage.setBold(true);
 				dennymessage.setClickEvent( new ClickEvent( ClickEvent.Action.RUN_COMMAND, "/denny" ) );

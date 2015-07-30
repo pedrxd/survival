@@ -33,6 +33,8 @@ public Player p;
 				if(tosv != null){
 					tosv.setGameMode(GameMode.SURVIVAL);
 					tosv.sendMessage(Manager.setMessage("b6"));
+					p.sendMessage(Manager.setMessage("b6"));
+
 				}
 			}if(args.length >= 2){
 				correctUse(p, "survival [<player>]");

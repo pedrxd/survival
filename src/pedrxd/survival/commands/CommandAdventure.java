@@ -32,6 +32,7 @@ public Player p;
 				if(toav !=null){
 					toav.setGameMode(GameMode.ADVENTURE);
 					toav.sendMessage(Manager.setMessage("a6"));
+					p.sendMessage(Manager.setMessage("a6"));
 				}
 			}if(args.length >= 2){
 				correctUse(p, "adventure [<player>] ");

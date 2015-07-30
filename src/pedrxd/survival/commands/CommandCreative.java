@@ -33,6 +33,7 @@ public Player p;
 				if(tocr != null){
 					tocr.setGameMode(GameMode.CREATIVE);
 					tocr.sendMessage(Manager.setMessage("a7"));
+					p.sendMessage(Manager.setMessage("a7"));
 				}
 			}if(args.length >= 2){
 				correctUse(p, "creative [<player>]");
