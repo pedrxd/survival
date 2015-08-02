@@ -70,7 +70,7 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 			if(e.getClickedInventory() != null){
 				ItemStack is = e.getCurrentItem();
 				if(sendTo(sendList.get((Player) e.getWhoClicked()), is)){
-					((Player) e.getWhoClicked()).getInventory().remove(is);
+					((Player) e.getWhoClicked()).getInventory().removeItem(is);
 					e.setCancelled(true);
 				}else{
 					((Player) e.getWhoClicked()).sendMessage(Manager.setMessage("f5"));
