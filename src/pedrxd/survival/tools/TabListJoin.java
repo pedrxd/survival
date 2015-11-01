@@ -13,7 +13,7 @@ import pedrxd.survival.api.TabMenu;
 
 
 public class TabListJoin {
-	public static HashMap<Player, Integer> editors = new HashMap();
+	public static HashMap<Player, Integer> editors = new HashMap<Player, Integer>();
 	public static void setTabList(Player p){
 		String header = ChatColor.translateAlternateColorCodes('&', Manager.config.getString("TabList.Header").replaceAll("%player", p.getName()));
 		String footer = ChatColor.translateAlternateColorCodes('&', Manager.config.getString("TabList.Footer").replaceAll("%player", p.getName()));
@@ -38,11 +38,11 @@ public class TabListJoin {
 			}if(editors.get(e.getPlayer()) == 2){
 				Manager.config.set("TabList.Footer", e.getMessage());
 			}
-			hasTerminated(e.getPlayer());
+			finishEdit(e.getPlayer());
 			e.setCancelled(true);
 		}
 	}
-	public static void hasTerminated(Player p){
+	public static void finishEdit(Player p){
 		p.openInventory(ConfigGui.tabMenuGui());
 		for(Player pp : Bukkit.getOnlinePlayers()){
 			setTabList(pp);

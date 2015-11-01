@@ -36,7 +36,7 @@ public class OnPlayer implements Listener {
 	}
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e){
-		TabListJoin.hasTerminated(e.getPlayer());
+		TabListJoin.finishEdit(e.getPlayer());
 		CommandSend.sendList.remove(e.getPlayer());
 		CommandSend.resquestList.remove(e.getPlayer());
 	}
