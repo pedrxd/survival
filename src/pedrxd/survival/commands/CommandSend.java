@@ -90,8 +90,9 @@ Plugin plugin;
 			}
 		}
 	}
+
 	public void resquestSend(Player p, Player sendto){
-		if(!sendList.containsKey(sendto)){
+		if(!resquestList.containsKey(sendto)){
 			if(!p.equals(sendto)){
 				dennymessage.setColor(ChatColor.RED);
 				dennymessage.setBold(true);
