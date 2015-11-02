@@ -45,8 +45,9 @@ Plugin plugin;
 			}else{
 				return false;
 		}
-		if(p.hasPermission("survival.send")){
-			if(cmd.getName().equalsIgnoreCase("send")){
+
+		if(cmd.getName().equalsIgnoreCase("send")){
+			if(p.hasPermission("survival.send")){
 				if(args.length == 1){
 					Player tosend = conPlayer(p, args[0], true);
 					if(tosend != null){
@@ -55,9 +56,9 @@ Plugin plugin;
 				}else{
 					correctUse(p, "send <player>");
 				}
+			}else{
+				noPerm(p);
 			}
-		}else{
-			noPerm(p);
 		}
 		if(cmd.getName().equalsIgnoreCase("accept")){
 			acceptResquest(p);
