@@ -38,6 +38,6 @@ public class OnPlayer implements Listener {
 	public void onQuit(PlayerQuitEvent e){
 		TabListJoin.finishEdit(e.getPlayer());
 		CommandSend.sendList.remove(e.getPlayer());
-		CommandSend.resquestList.remove(e.getPlayer());
+		CommandSend.removeFromWaitLists(e.getPlayer());
 	}
 }

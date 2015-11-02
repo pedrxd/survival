@@ -22,3 +22,5 @@ commands:
 TabList:
   Header: '&3Survival &21.0V\n &9 ------------------------'
   Footer: '&9--------------------\n &3Development By Pedrxd'
+settings:
+    timeoutSend: 60

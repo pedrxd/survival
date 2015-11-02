@@ -55,9 +55,9 @@ public class Manager extends JavaPlugin {
 		getCommand("slap").setExecutor(new CommandShot(this));
 		getCommand("night").setExecutor(new CommandNight());
 		getCommand("day").setExecutor(new CommandDay());
-		getCommand("send").setExecutor(new CommandSend());
-		getCommand("accept").setExecutor(new CommandSend());
-		getCommand("denny").setExecutor(new CommandSend());
+		getCommand("send").setExecutor(new CommandSend(this));
+		getCommand("accept").setExecutor(new CommandSend(this));
+		getCommand("denny").setExecutor(new CommandSend(this));
 
 
 	}

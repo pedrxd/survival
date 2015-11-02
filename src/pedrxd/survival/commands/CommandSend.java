@@ -6,24 +6,33 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
 
 import pedrxd.survival.Manager;
 import pedrxd.survival.Players;
 
 public class CommandSend extends Players implements CommandExecutor {
 public Player p;
+public int task;
 public static HashMap<Player, Player> sendList = new HashMap();
 public static HashMap<Player, Player> resquestList = new HashMap();
+public static HashMap<Player, Integer> resquestTimeOut = new HashMap();
 
 static TextComponent acceptmessage = new TextComponent(Manager.setMessage("f9"));
 static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 
+Plugin plugin;
+
+	public CommandSend(Plugin plg){
+		plugin = plg;
+	}
 	@Override
 	public boolean onCommand(CommandSender arg0, Command cmd, String arg2,
 			String[] args) {
@@ -38,13 +47,13 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 		}
 		if(p.hasPermission("survival.send")){
 			if(cmd.getName().equalsIgnoreCase("send")){
-				if(args.length == 0){
-					correctUse(p, "send <player>");
-				}if(args.length == 1){
+				if(args.length == 1){
 					Player tosend = conPlayer(p, args[0], true);
 					if(tosend != null){
 						resquestSend(p, tosend);
 					}
+				}else{
+					correctUse(p, "send <player>");
 				}
 			}
 		}else{
@@ -80,7 +89,7 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 			}
 		}
 	}
-	public static void resquestSend(Player p, Player sendto){
+	public void resquestSend(Player p, Player sendto){
 		if(!sendList.containsKey(sendto)){
 			if(!p.equals(sendto)){
 				dennymessage.setColor(ChatColor.RED);
@@ -89,6 +98,8 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 				acceptmessage.setColor(ChatColor.GREEN);
 				acceptmessage.setBold(true);
 				acceptmessage.setClickEvent( new ClickEvent( ClickEvent.Action.RUN_COMMAND, "/accept" ) );
+				
+				startCountDown(sendto, Manager.config.getInt("settings.timeoutSend"));
 				resquestList.put(sendto, p);
 				
 				sendto.sendMessage(Manager.setMessage("f8").replaceAll("%player", p.getName()));
@@ -103,7 +114,7 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 			p.sendMessage(Manager.setMessage("g5"));
 		}
 	}
-	public static void acceptResquest(Player sendto){
+	public void acceptResquest(Player sendto){
 		if(resquestList.containsKey(sendto)){
 			
 			Player p = resquestList.get(sendto);
@@ -115,7 +126,7 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 			sendto.sendMessage(Manager.setMessage("g4"));
 		}
 	}
-	public static void dennyResquest(Player sendto){
+	public void dennyResquest(Player sendto){
 		if(resquestList.containsKey(sendto)){
 			
 			Player p = resquestList.get(sendto);
@@ -128,5 +139,36 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 	}
 	public static void removeFromWaitLists(Player sendto){
 		resquestList.remove(sendto);
+		resquestTimeOut.remove(sendto);
+	}
+	public void startCountDown(Player p, int i){
+		resquestTimeOut.put(p, i);
+		if(task == 0){
+			task = plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
+	            @Override
+	            public void run() {
+	               for(Player on : Bukkit.getOnlinePlayers()){
+	            	   if(resquestTimeOut.containsKey(on)){
+	            		   if(resquestTimeOut.get(on) % 10 == 0){
+	            			   on.sendMessage(Manager.lang.getString("g8").replace("%timeout", resquestTimeOut.get(on).toString()));
+	            		   }
+		            	   if(resquestTimeOut.get(on) <= 0){
+		            		   on.sendMessage(Manager.lang.getString("g7"));
+		            		   resquestList.get(on).sendMessage(Manager.lang.getString("g7"));
+		            		   removeFromWaitLists(on);
+		            	   }else{
+		            		   resquestTimeOut.put(on, resquestTimeOut.get(on) -1);
+		            	   }
+	            	   }if(resquestTimeOut.isEmpty()){
+            			   plugin.getServer().getScheduler().cancelTask(task);
+            			   task = 0;
+            		   }
+	               }
+	            }
+	        }, 0L, 20L);
+		}
+		
 	}
 }
+
+
