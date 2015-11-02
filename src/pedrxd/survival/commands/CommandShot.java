@@ -98,7 +98,7 @@ public class CommandShot extends Players implements CommandExecutor{
 	               for(Player on : Bukkit.getOnlinePlayers()){
 	            	   if(forslap.containsKey(on)){
 		            	   if(forslap.get(on) <= 0){
-		            		   stopSlap(p);
+		            		   stopSlap(on);
 		            	   }else{
 		            		   slap(on);
 		            		   forslap.put(on, forslap.get(on) -1);

@@ -22,7 +22,7 @@ public class PrivateMessage extends Players {
 							if (pmto != null) {
 								String allme = "";
 								for (int i = 1; i < arg.length; i++) {
-									allme = allme + arg[i];
+									allme = allme + arg[i] + " ";
 								}
 								e.getPlayer().sendMessage(
 								ChatColor.BOLD + "[PM] "+ ChatColor.BLUE+ e.getPlayer().getName()+ ChatColor.GOLD + " --> "+ ChatColor.BLUE+ pmto.getName());

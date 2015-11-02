@@ -36,8 +36,8 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 			}else{
 				return false;
 		}
-		if(p.hasPermission("survival.send")){
-			if(cmd.getName().equalsIgnoreCase("send")){
+		if(cmd.getName().equalsIgnoreCase("send")){
+			if(p.hasPermission("survival.send")){
 				if(args.length == 0){
 					correctUse(p, "send <player>");
 				}if(args.length == 1){
@@ -46,9 +46,9 @@ static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
 						resquestSend(p, tosend);
 					}
 				}
+			}else{
+				noPerm(p);
 			}
-		}else{
-			noPerm(p);
 		}
 		if(cmd.getName().equalsIgnoreCase("accept")){
 			acceptResquest(p);
