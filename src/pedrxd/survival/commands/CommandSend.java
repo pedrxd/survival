@@ -17,6 +17,7 @@ import org.bukkit.plugin.Plugin;
 
 import pedrxd.survival.Manager;
 import pedrxd.survival.Players;
+import pedrxd.survival.api.ActionBar;
 
 public class CommandSend extends Players implements CommandExecutor {
 public Player p;
@@ -27,6 +28,8 @@ public static HashMap<Player, Integer> resquestTimeOut = new HashMap();
 
 static TextComponent acceptmessage = new TextComponent(Manager.getLang("f9"));
 static TextComponent dennymessage = new TextComponent(Manager.getLang("g1"));
+
+public static ActionBar waitingMe = new ActionBar();
 
 Plugin plugin;
 
@@ -151,15 +154,15 @@ Plugin plugin;
 	            public void run() {
 	               for(Player on : Bukkit.getOnlinePlayers()){
 	            	   if(resquestTimeOut.containsKey(on)){
-	            		   if(resquestTimeOut.get(on) % 10 == 0){
-	            			   on.sendMessage(Manager.getLang("g8").replace("%timeout", resquestTimeOut.get(on).toString()));
-	            		   }
-		            	   if(resquestTimeOut.get(on) <= 0){
-		            		   on.sendMessage(Manager.lang.getString("g7"));
+	            		   int timeout = resquestTimeOut.get(on);
+	            		   waitingMe.setMessage(Manager.getLang("g8").replace("%timeout", Integer.toString(timeout)));
+	            		   waitingMe.sendTo(on);
+		            	   if(timeout <= 0){
+		            		   on.sendMessage(Manager.getLang("g7"));
 		            		   resquestList.get(on).sendMessage(Manager.getLang("g7"));
 		            		   removeFromWaitLists(on);
 		            	   }else{
-		            		   resquestTimeOut.put(on, resquestTimeOut.get(on) -1);
+		            		   resquestTimeOut.put(on, timeout -1);
 		            	   }
 	            	   }if(resquestTimeOut.isEmpty()){
             			   plugin.getServer().getScheduler().cancelTask(task);
