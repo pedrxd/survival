@@ -27,14 +27,14 @@ public Player p;
 		if(p.hasPermission("survival.day")){
 			if(args.length == 0){
 				p.getWorld().setTime(0);
-				p.sendMessage(Manager.setMessage("f3"));
+				p.sendMessage(Manager.getLang("f3"));
 			}if(args.length == 1){
 				World w = Bukkit.getWorld(args[0]);
 				if(w !=null){
 					w.setTime(0);
-					p.sendMessage(Manager.setMessage("f3"));
+					p.sendMessage(Manager.getLang("f3"));
 				}else{
-					p.sendMessage(Manager.setMessage("f4"));
+					p.sendMessage(Manager.getLang("f4"));
 				}
 			}
 		}else{

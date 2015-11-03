@@ -34,7 +34,7 @@ public class CommandOi extends Players implements CommandExecutor {
 					if (!foropen.hasPermission("survival.nooi")) {
 						p.openInventory(foropen.getInventory());
 					} else {
-						p.sendMessage(Manager.setMessage("b3"));
+						p.sendMessage(Manager.getLang("b3"));
 					}
 				}
 			}

@@ -30,7 +30,7 @@ public class PrivateMessage extends Players {
 								pmto.playSound(pmto.getLocation(), Sound.NOTE_PIANO, 1, 100);
 							}
 						} else {
-							e.getPlayer().sendMessage(Manager.setMessage("d5"));
+							e.getPlayer().sendMessage(Manager.getLang("d5"));
 						}
 							e.setCancelled(true);
 					}

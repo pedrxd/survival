@@ -78,7 +78,7 @@ public class CommandShot extends Players implements CommandExecutor{
 		loc.setYaw((float) (Math.floor(Math.random() * 360) - 180));
 		p.teleport(loc);
 		p.setVelocity(randomVector());
-		p.sendMessage(Manager.setMessage("b4"));
+		p.sendMessage(Manager.getLang("b4"));
 	}
 	public static void stopSlap(Player p){
 		if(CommandShot.forslap.containsKey(p)){

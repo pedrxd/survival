@@ -26,13 +26,13 @@ public Player p;
 		if(p.hasPermission("survival.adventure")){
 			if(args.length == 0){
 				p.setGameMode(GameMode.ADVENTURE);
-				p.sendMessage(Manager.setMessage("a6"));
+				p.sendMessage(Manager.getLang("a6"));
 			}if(args.length == 1){
 				Player toav = conPlayer(p, args[0], true);
 				if(toav !=null){
 					toav.setGameMode(GameMode.ADVENTURE);
-					toav.sendMessage(Manager.setMessage("a6"));
-					p.sendMessage(Manager.setMessage("a6"));
+					toav.sendMessage(Manager.getLang("a6"));
+					p.sendMessage(Manager.getLang("a6"));
 				}
 			}if(args.length >= 2){
 				correctUse(p, "adventure [<player>] ");

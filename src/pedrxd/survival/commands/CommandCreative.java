@@ -27,13 +27,13 @@ public Player p;
 		if(p.hasPermission("survival.creative")){
 			if(args.length == 0){
 			 p.setGameMode(GameMode.CREATIVE);	
-			 p.sendMessage(Manager.setMessage("a7"));
+			 p.sendMessage(Manager.getLang("a7"));
 			}if(args.length == 1){
 				Player tocr = conPlayer(p, args[0], true);
 				if(tocr != null){
 					tocr.setGameMode(GameMode.CREATIVE);
-					tocr.sendMessage(Manager.setMessage("a7"));
-					p.sendMessage(Manager.setMessage("a7"));
+					tocr.sendMessage(Manager.getLang("a7"));
+					p.sendMessage(Manager.getLang("a7"));
 				}
 			}if(args.length >= 2){
 				correctUse(p, "creative [<player>]");

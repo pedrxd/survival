@@ -40,17 +40,17 @@ public class ShowDamage {
 	public static void showDamage(Player p, Double hp, Boolean Arrow, Double dis){
 		if(!Arrow){
 			if(hp <= 0){
-				tdamage.setMessage(Manager.setMessage("d1"));
+				tdamage.setMessage(Manager.getLang("d1"));
 
 			}else{
-				tdamage.setMessage(Manager.setMessage("d2").replaceAll("%hp",  Integer.toString(hp.intValue())));
+				tdamage.setMessage(Manager.getLang("d2").replaceAll("%hp",  Integer.toString(hp.intValue())));
 			}
 			
 		}else{
 			if(hp <= 0){
-				tdamage.setMessage(Manager.setMessage("d4").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue())));
+				tdamage.setMessage(Manager.getLang("d4").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue())));
 			}else{
-				tdamage.setMessage(Manager.setMessage("d3").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue())));
+				tdamage.setMessage(Manager.getLang("d3").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue())));
 			}
 		}
 		tdamage.sendTo(p);

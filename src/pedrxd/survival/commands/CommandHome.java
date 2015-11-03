@@ -38,7 +38,7 @@ public class CommandHome extends Players implements CommandExecutor {
 					Location homeloc = new Location(Bukkit.getWorld(arg[0]), parsed[0], parsed[1], parsed[2]);
 					p.teleport(homeloc);
 				} else {
-					p.sendMessage(Manager.setMessage("a8"));
+					p.sendMessage(Manager.getLang("a8"));
 				}
 			}
 			if (args.length == 1) {
@@ -47,7 +47,7 @@ public class CommandHome extends Players implements CommandExecutor {
 					String locstr = homeloc.getWorld().getName() + " " + homeloc.getX() + " " + homeloc.getY() + " " + homeloc.getZ();
 					Manager.home.set("homelocs." + p.getUniqueId().toString(), locstr);
 					Manager.home.save();
-					p.sendMessage(Manager.setMessage("a9"));
+					p.sendMessage(Manager.getLang("a9"));
 				} else {
 					correctUse(p, "home   /home set   /home reload");
 				}

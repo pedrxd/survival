@@ -20,7 +20,7 @@ public class OnInventory implements Listener {
 	public void onInventoryClose(InventoryCloseEvent e){
 		if(CommandSend.sendList.containsKey((Player) e.getPlayer())){
 			CommandSend.sendList.remove((Player) e.getPlayer());
-			((Player) e.getPlayer()).sendMessage(Manager.setMessage("f6"));
+			((Player) e.getPlayer()).sendMessage(Manager.getLang("f6"));
 		}
 	}
 }

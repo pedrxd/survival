@@ -26,9 +26,9 @@ public class TabListJoin {
 		editors.put(p, i);
 		p.closeInventory();
 		if(i == 1){
-			p.sendMessage(Manager.setMessage("f1"));
+			p.sendMessage(Manager.getLang("f1"));
 		}if(i == 2){
-			p.sendMessage(Manager.setMessage("f2"));
+			p.sendMessage(Manager.getLang("f2"));
 		}
 	}
 	public static void onChat(AsyncPlayerChatEvent e){

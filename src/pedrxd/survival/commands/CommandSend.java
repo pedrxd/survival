@@ -25,8 +25,8 @@ public static HashMap<Player, Player> sendList = new HashMap();
 public static HashMap<Player, Player> resquestList = new HashMap();
 public static HashMap<Player, Integer> resquestTimeOut = new HashMap();
 
-static TextComponent acceptmessage = new TextComponent(Manager.setMessage("f9"));
-static TextComponent dennymessage = new TextComponent(Manager.setMessage("g1"));
+static TextComponent acceptmessage = new TextComponent(Manager.getLang("f9"));
+static TextComponent dennymessage = new TextComponent(Manager.getLang("g1"));
 
 Plugin plugin;
 
@@ -83,7 +83,7 @@ Plugin plugin;
 					((Player) e.getWhoClicked()).getInventory().removeItem(is);
 					e.setCancelled(true);
 				}else{
-					((Player) e.getWhoClicked()).sendMessage(Manager.setMessage("f5"));
+					((Player) e.getWhoClicked()).sendMessage(Manager.getLang("f5"));
 					((Player) e.getWhoClicked()).closeInventory();
 					e.setCancelled(true);
 				}
@@ -104,16 +104,16 @@ Plugin plugin;
 				startCountDown(sendto, Manager.config.getInt("settings.timeoutSend"));
 				resquestList.put(sendto, p);
 				
-				sendto.sendMessage(Manager.setMessage("f8").replaceAll("%player", p.getName()));
+				sendto.sendMessage(Manager.getLang("f8").replaceAll("%player", p.getName()));
 				sendto.spigot().sendMessage(acceptmessage);
 				sendto.spigot().sendMessage(dennymessage);
 				
-				p.sendMessage(Manager.setMessage("f7"));
+				p.sendMessage(Manager.getLang("f7"));
 			}else{
-				p.sendMessage(Manager.setMessage("g6"));
+				p.sendMessage(Manager.getLang("g6"));
 			}
 		}else{
-			p.sendMessage(Manager.setMessage("g5"));
+			p.sendMessage(Manager.getLang("g5"));
 		}
 	}
 	public void acceptResquest(Player sendto){
@@ -122,10 +122,10 @@ Plugin plugin;
 			Player p = resquestList.get(sendto);
 			removeFromWaitLists(sendto);
 			sendList.put(p, sendto);
-			sendto.sendMessage(Manager.setMessage("g2"));
+			sendto.sendMessage(Manager.getLang("g2"));
 			p.openInventory(p.getInventory());
 		}else{
-			sendto.sendMessage(Manager.setMessage("g4"));
+			sendto.sendMessage(Manager.getLang("g4"));
 		}
 	}
 	public void dennyResquest(Player sendto){
@@ -133,10 +133,10 @@ Plugin plugin;
 			
 			Player p = resquestList.get(sendto);
 			removeFromWaitLists(sendto);
-			p.sendMessage(Manager.setMessage("g3"));
-			sendto.sendMessage(Manager.setMessage("g3"));
+			p.sendMessage(Manager.getLang("g3"));
+			sendto.sendMessage(Manager.getLang("g3"));
 		}else{
-			sendto.sendMessage(Manager.setMessage("g4"));
+			sendto.sendMessage(Manager.getLang("g4"));
 		}
 	}
 	public static void removeFromWaitLists(Player sendto){
@@ -152,11 +152,11 @@ Plugin plugin;
 	               for(Player on : Bukkit.getOnlinePlayers()){
 	            	   if(resquestTimeOut.containsKey(on)){
 	            		   if(resquestTimeOut.get(on) % 10 == 0){
-	            			   on.sendMessage(Manager.lang.getString("g8").replace("%timeout", resquestTimeOut.get(on).toString()));
+	            			   on.sendMessage(Manager.getLang("g8").replace("%timeout", resquestTimeOut.get(on).toString()));
 	            		   }
 		            	   if(resquestTimeOut.get(on) <= 0){
 		            		   on.sendMessage(Manager.lang.getString("g7"));
-		            		   resquestList.get(on).sendMessage(Manager.lang.getString("g7"));
+		            		   resquestList.get(on).sendMessage(Manager.getLang("g7"));
 		            		   removeFromWaitLists(on);
 		            	   }else{
 		            		   resquestTimeOut.put(on, resquestTimeOut.get(on) -1);

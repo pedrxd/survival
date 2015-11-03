@@ -48,10 +48,10 @@ public class CommandMute extends Players implements CommandExecutor {
 	public void muteHim(Player p) {
 		if (mute.contains(p)) {
 			mute.remove(p);
-			p.sendMessage(Manager.setMessage("b1"));
+			p.sendMessage(Manager.getLang("b1"));
 		} else {
 			mute.add(p);
-			p.sendMessage(Manager.setMessage("b2"));
+			p.sendMessage(Manager.getLang("b2"));
 		}
 	}
 

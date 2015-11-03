@@ -95,9 +95,9 @@ public class ConfigGui {
 		ItemStack libro = new ItemStack(Material.BOOK);
 		ItemMeta lidat = libro.getItemMeta();
 		if (Manager.config.getBoolean("tools.privateMessage")) {
-			lidat.setDisplayName(Manager.setMessage("b7"));
+			lidat.setDisplayName(Manager.getLang("b7"));
 		} else {
-			lidat.setDisplayName(Manager.setMessage("b8"));
+			lidat.setDisplayName(Manager.getLang("b8"));
 		}
 		libro.setItemMeta(lidat);
 		gui.setItem(2, libro);
@@ -105,9 +105,9 @@ public class ConfigGui {
 		ItemStack espada = new ItemStack(Material.IRON_SWORD);
 		ItemMeta esdat = espada.getItemMeta();
 		if(Manager.config.getBoolean("tools.showDamage")){
-			esdat.setDisplayName(Manager.setMessage("b9"));
+			esdat.setDisplayName(Manager.getLang("b9"));
 		}else{
-			esdat.setDisplayName(Manager.setMessage("c1"));
+			esdat.setDisplayName(Manager.getLang("c1"));
 		}
 		espada.setItemMeta(esdat);
 		gui.setItem(3, espada);
@@ -116,13 +116,13 @@ public class ConfigGui {
 		ItemMeta codat = cofre.getItemMeta();
 		String ic = Manager.config.getString("tools.keepInventory");
 		if (ic.equalsIgnoreCase("yes")) {
-			codat.setDisplayName(Manager.setMessage("c2"));
+			codat.setDisplayName(Manager.getLang("c2"));
 		}
 		if (ic.equalsIgnoreCase("no")) {
-			codat.setDisplayName(Manager.setMessage("c3"));
+			codat.setDisplayName(Manager.getLang("c3"));
 		}
 		if (ic.equalsIgnoreCase("chest")) {
-			codat.setDisplayName(Manager.setMessage("c4"));
+			codat.setDisplayName(Manager.getLang("c4"));
 		}else{
 			
 		}
@@ -131,23 +131,23 @@ public class ConfigGui {
 
 		ItemStack frame = new ItemStack(Material.ITEM_FRAME);
 		ItemMeta frdat = frame.getItemMeta();
-		frdat.setDisplayName(Manager.setMessage("d7"));
+		frdat.setDisplayName(Manager.getLang("d7"));
 		frame.setItemMeta(frdat);
 		gui.setItem(14, frame);
 		
 		ItemStack bslime = new ItemStack(Material.SLIME_BALL);
 		ItemMeta bsdat = bslime.getItemMeta();
 		if (Manager.config.getBoolean("tools.keepXp")) {
-			bsdat.setDisplayName(Manager.setMessage("c5"));
+			bsdat.setDisplayName(Manager.getLang("c5"));
 		} else {
-			bsdat.setDisplayName(Manager.setMessage("c6"));
+			bsdat.setDisplayName(Manager.getLang("c6"));
 		}
 		bslime.setItemMeta(bsdat);
 		gui.setItem(6, bslime);
 
 		ItemStack head = new ItemStack(Material.SADDLE);
 		ItemMeta hedat = head.getItemMeta();
-		hedat.setDisplayName(Manager.setMessage("c7"));
+		hedat.setDisplayName(Manager.getLang("c7"));
 		head.setItemMeta(hedat);
 		gui.setItem(13, head);
 
@@ -161,9 +161,9 @@ public class ConfigGui {
 		ItemStack player = new ItemStack(Material.DIAMOND_HELMET);
 		ItemMeta pldat = player.getItemMeta();
 		if (Manager.config.getBoolean("tools.rider.Player")) {
-			pldat.setDisplayName(Manager.setMessage("c8").replaceAll("%that", "player"));
+			pldat.setDisplayName(Manager.getLang("c8").replaceAll("%that", "player"));
 		} else {
-			pldat.setDisplayName(Manager.setMessage("c9").replaceAll("%that", "player"));
+			pldat.setDisplayName(Manager.getLang("c9").replaceAll("%that", "player"));
 		}
 		player.setItemMeta(pldat);
 		gui.setItem(2, player);
@@ -171,16 +171,16 @@ public class ConfigGui {
 		ItemStack animal = new ItemStack(Material.WHEAT);
 		ItemMeta andat = animal.getItemMeta();
 		if (Manager.config.getBoolean("tools.rider.Animal")) {
-			andat.setDisplayName(Manager.setMessage("c8").replaceAll("%that", "animal"));
+			andat.setDisplayName(Manager.getLang("c8").replaceAll("%that", "animal"));
 		} else {
-			andat.setDisplayName(Manager.setMessage("c9").replaceAll("%that", "animal"));
+			andat.setDisplayName(Manager.getLang("c9").replaceAll("%that", "animal"));
 		}
 		animal.setItemMeta(andat);
 		gui.setItem(6, animal);
 
 		ItemStack cartel = new ItemStack(Material.SIGN);
 		ItemMeta cadat = cartel.getItemMeta();
-		cadat.setDisplayName(Manager.setMessage("d6"));
+		cadat.setDisplayName(Manager.getLang("d6"));
 		cartel.setItemMeta(cadat);
 		gui.setItem(9, cartel);
 		return gui;
@@ -190,19 +190,19 @@ public class ConfigGui {
 				+ "Config");
 		ItemStack head = new ItemStack(Material.IRON_HELMET);
 		ItemMeta hedat = head.getItemMeta();
-		hedat.setDisplayName(Manager.setMessage("d8"));
+		hedat.setDisplayName(Manager.getLang("d8"));
 		head.setItemMeta(hedat);
 		gui.setItem(2, head);
 		
 		ItemStack foot = new ItemStack(Material.IRON_BOOTS);
 		ItemMeta fodat = foot.getItemMeta();
-		fodat.setDisplayName(Manager.setMessage("d9"));
+		fodat.setDisplayName(Manager.getLang("d9"));
 		foot.setItemMeta(fodat);
 		gui.setItem(6, foot);
 		
 		ItemStack cartel = new ItemStack(Material.SIGN);
 		ItemMeta cadat = cartel.getItemMeta();
-		cadat.setDisplayName(Manager.setMessage("d6"));
+		cadat.setDisplayName(Manager.getLang("d6"));
 		cartel.setItemMeta(cadat);
 		gui.setItem(9, cartel);
 		

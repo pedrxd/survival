@@ -22,7 +22,7 @@ public class Players{
 		}
 		if (haveThat.isEmpty()) {
 			if (message) {
-				p.sendMessage(Manager.setMessage("a1"));
+				p.sendMessage(Manager.getLang("a1"));
 			}
 			return null;
 		}
@@ -31,7 +31,7 @@ public class Players{
 		}
 		if (haveThat.size() > 1) {
 			if (message) {
-				p.sendMessage(Manager.setMessage("a2"));
+				p.sendMessage(Manager.getLang("a2"));
 				for (Player coin : haveThat) {
 					p.sendMessage(ChatColor.GOLD + "--> " + coin.getName());
 				}
@@ -43,21 +43,21 @@ public class Players{
 
 	public static void disComm(Player p) {
 		if (p != null) {
-			p.sendMessage(Manager.setMessage("a3"));
+			p.sendMessage(Manager.getLang("a3"));
 		} else {
-			System.out.println(Manager.setMessage("a3"));
+			System.out.println(Manager.getLang("a3"));
 		}
 	}
 
 	public static void noPerm(Player p) {
-		p.sendMessage(Manager.setMessage("a4"));
+		p.sendMessage(Manager.getLang("a4"));
 	}
 
 	public static void correctUse(Player p, String usage) {
 		if (p != null) {
-			p.sendMessage(Manager.setMessage("a5").replace("%correctuse", usage));
+			p.sendMessage(Manager.getLang("a5").replace("%correctuse", usage));
 		} else {
-			System.out.println(Manager.setMessage("a5").replace("%correctuse", usage));
+			System.out.println(Manager.getLang("a5").replace("%correctuse", usage));
 		}
 
 	}

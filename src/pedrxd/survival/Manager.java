@@ -1,6 +1,7 @@
 package pedrxd.survival;
 
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -72,7 +73,7 @@ public class Manager extends JavaPlugin {
 	
 
 	}
-	public static String setMessage(String index){
+	public static String getLang(String index){
 		return ChatColor.translateAlternateColorCodes('&', lang.getString(index));
 	}
 	

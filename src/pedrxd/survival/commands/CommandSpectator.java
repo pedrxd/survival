@@ -26,13 +26,13 @@ public Player p;
 		if(p.hasPermission("survival.spectator")){
 			if(args.length == 0){
 				p.setGameMode(GameMode.SPECTATOR);
-				p.sendMessage(Manager.setMessage("b5"));
+				p.sendMessage(Manager.getLang("b5"));
 			}if(args.length == 1){
 				Player tosp = conPlayer(p, args[0], true);
 				if(tosp != null){
 					tosp.setGameMode(GameMode.SPECTATOR);
-					tosp.sendMessage(Manager.setMessage("b5"));
-					p.sendMessage(Manager.setMessage("b5"));
+					tosp.sendMessage(Manager.getLang("b5"));
+					p.sendMessage(Manager.getLang("b5"));
 				}
 			}if(args.length >= 2){
 				correctUse(p, "spec [<player>]");

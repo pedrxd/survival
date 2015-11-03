@@ -27,13 +27,13 @@ public Player p;
 		if(p.hasPermission("survival.survival")){
 			if(args.length == 0){
 				p.setGameMode(GameMode.SURVIVAL);
-				p.sendMessage(Manager.setMessage("b6"));
+				p.sendMessage(Manager.getLang("b6"));
 			}if(args.length == 1){
 				Player tosv = conPlayer(p,args[0], true);
 				if(tosv != null){
 					tosv.setGameMode(GameMode.SURVIVAL);
-					tosv.sendMessage(Manager.setMessage("b6"));
-					p.sendMessage(Manager.setMessage("b6"));
+					tosv.sendMessage(Manager.getLang("b6"));
+					p.sendMessage(Manager.getLang("b6"));
 
 				}
 			}if(args.length >= 2){
