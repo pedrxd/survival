@@ -22,12 +22,12 @@ import pedrxd.survival.api.ActionBar;
 public class CommandSend extends Players implements CommandExecutor {
 public Player p;
 public int task;
-public static HashMap<Player, Player> sendList = new HashMap();
-public static HashMap<Player, Player> resquestList = new HashMap();
-public static HashMap<Player, Integer> resquestTimeOut = new HashMap();
+public static HashMap<Player, Player> sendList = new HashMap<Player, Player>();
+public static HashMap<Player, Player> resquestList = new HashMap<Player, Player>();
+public static HashMap<Player, Integer> resquestTimeOut = new HashMap<Player, Integer>();
 
 static TextComponent acceptmessage = new TextComponent(Manager.getLang("f9"));
-static TextComponent dennymessage = new TextComponent(Manager.getLang("g1"));
+static TextComponent denymessage = new TextComponent(Manager.getLang("g1"));
 
 public static ActionBar waitingMe = new ActionBar();
 
@@ -63,9 +63,9 @@ Plugin plugin;
 				noPerm(p);
 			}
 		}
-		if(cmd.getName().equalsIgnoreCase("accept")){
+		if(cmd.getName().equalsIgnoreCase("sendaccept")){
 			acceptResquest(p);
-		}if(cmd.getName().equalsIgnoreCase("denny")){
+		}if(cmd.getName().equalsIgnoreCase("senddeny")){
 			dennyResquest(p);
 		}
 		return true;
@@ -97,19 +97,19 @@ Plugin plugin;
 	public void resquestSend(Player p, Player sendto){
 		if(!resquestList.containsKey(sendto)){
 			if(!p.equals(sendto)){
-				dennymessage.setColor(ChatColor.RED);
-				dennymessage.setBold(true);
-				dennymessage.setClickEvent( new ClickEvent( ClickEvent.Action.RUN_COMMAND, "/denny" ) );
+				denymessage.setColor(ChatColor.RED);
+				denymessage.setBold(true);
+				denymessage.setClickEvent( new ClickEvent( ClickEvent.Action.RUN_COMMAND, "/senddeny" ) );
 				acceptmessage.setColor(ChatColor.GREEN);
 				acceptmessage.setBold(true);
-				acceptmessage.setClickEvent( new ClickEvent( ClickEvent.Action.RUN_COMMAND, "/accept" ) );
+				acceptmessage.setClickEvent( new ClickEvent( ClickEvent.Action.RUN_COMMAND, "/sendaccept" ) );
 				
 				startCountDown(sendto, Manager.config.getInt("settings.timeoutSend"));
 				resquestList.put(sendto, p);
 				
 				sendto.sendMessage(Manager.getLang("f8").replaceAll("%player", p.getName()));
 				sendto.spigot().sendMessage(acceptmessage);
-				sendto.spigot().sendMessage(dennymessage);
+				sendto.spigot().sendMessage(denymessage);
 				
 				p.sendMessage(Manager.getLang("f7"));
 			}else{
@@ -145,6 +145,7 @@ Plugin plugin;
 	public static void removeFromWaitLists(Player sendto){
 		resquestList.remove(sendto);
 		resquestTimeOut.remove(sendto);
+		sendList.remove(sendto);
 	}
 	public void startCountDown(Player p, int i){
 		resquestTimeOut.put(p, i);

@@ -1,7 +1,6 @@
 package pedrxd.survival;
 
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -57,8 +56,11 @@ public class Manager extends JavaPlugin {
 		getCommand("night").setExecutor(new CommandNight());
 		getCommand("day").setExecutor(new CommandDay());
 		getCommand("send").setExecutor(new CommandSend(this));
-		getCommand("accept").setExecutor(new CommandSend(this));
-		getCommand("denny").setExecutor(new CommandSend(this));
+		getCommand("sendaccept").setExecutor(new CommandSend(this));
+		getCommand("senddeny").setExecutor(new CommandSend(this));
+		getCommand("tpa").setExecutor(new CommandTpResquest(this));
+		getCommand("tpaccept").setExecutor(new CommandTpResquest(this));
+		getCommand("tpdeny").setExecutor(new CommandTpResquest(this));
 
 
 	}

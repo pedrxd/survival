@@ -42,9 +42,18 @@ commands:
     send:
         usage: /send <player>
         description: Send a item to a player.
-    accept:
-        usage: /accept
+    sendaccept:
+        usage: /sendaccept
         description: Accept a petition
-    denny:
-        usage: /denny
-        description: Denny a petition
+    senddeny:
+        usage: /senddeny
+        description: Deny a petition
+    tpaccept:
+        usage: /tpaccept
+        description: Accept a petition
+    tpdeny:
+        usage: /tpdeny
+        description: Deny a petition
+    tpa:
+        usage: /tpa
+        description: Tp to a player

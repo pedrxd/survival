@@ -10,6 +10,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import pedrxd.survival.Manager;
 import pedrxd.survival.commands.CommandSend;
 import pedrxd.survival.commands.CommandShot;
+import pedrxd.survival.commands.CommandTpResquest;
 import pedrxd.survival.tools.InventoryDeath;
 import pedrxd.survival.tools.PlayerRider;
 import pedrxd.survival.tools.TabListJoin;
@@ -37,7 +38,7 @@ public class OnPlayer implements Listener {
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e){
 		TabListJoin.finishEdit(e.getPlayer());
-		CommandSend.sendList.remove(e.getPlayer());
 		CommandSend.removeFromWaitLists(e.getPlayer());
+		CommandTpResquest.removeFromWaitLists(e.getPlayer());
 	}
 }

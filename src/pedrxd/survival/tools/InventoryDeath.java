@@ -23,8 +23,8 @@ public class InventoryDeath {
 			e.setKeepInventory(true);
 			Player p = e.getEntity();
 			Block b = p.getLocation().getBlock();
-			getAir(p.getLocation()).setType(Material.CHEST);
-
+			if(p.getInventory().getSize() > 26)
+				getAir(p.getLocation()).setType(Material.CHEST);
 			b.setType(Material.CHEST);
 			Chest ch = (Chest) b.getState();
 			for (ItemStack is : p.getInventory().getContents()) {
