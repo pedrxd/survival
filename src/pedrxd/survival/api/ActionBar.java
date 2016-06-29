@@ -1,13 +1,13 @@
 package pedrxd.survival.api;
 
 
-import net.minecraft.server.v1_9_R1.IChatBaseComponent;
-import net.minecraft.server.v1_9_R1.IChatBaseComponent.ChatSerializer;
-import net.minecraft.server.v1_9_R1.PacketPlayOutChat;
+import net.minecraft.server.v1_10_R1.IChatBaseComponent;
+import net.minecraft.server.v1_10_R1.IChatBaseComponent.ChatSerializer;
+import net.minecraft.server.v1_10_R1.PacketPlayOutChat;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 

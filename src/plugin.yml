@@ -1,6 +1,6 @@
 main: pedrxd.survival.Manager
 name: Survival
-version: 1.2V
+version: 1.3V
 author: Pedro Ruiz
 commands:
     mute:
