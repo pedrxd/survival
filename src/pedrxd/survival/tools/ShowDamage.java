@@ -14,12 +14,12 @@ public class ShowDamage {
 	
 	
 	public static void onDamage(EntityDamageByEntityEvent e){
-		if(Manager.config.getBoolean("tools.showDamage") && e.getEntity() instanceof LivingEntity){
+            if(Manager.config.getBoolean("tools.showDamage") && e.getEntity() instanceof LivingEntity){
 		if(e.getDamager() instanceof Player){
 			Player p = (Player) e.getDamager();
 			if(e.getEntity() instanceof LivingEntity){
 				LivingEntity le = (LivingEntity) e.getEntity();
-				Double hp = (le.getHealth()-e.getDamage()) / le.getMaxHealth() * 100;
+				Double hp = (le.getHealth()-e.getFinalDamage()) / le.getMaxHealth() * 100;
 				showDamage(p, hp,false, null);
 				
 			}
@@ -29,12 +29,12 @@ public class ShowDamage {
 				Player p = (Player) arrow.getShooter();
 				LivingEntity le = (LivingEntity) e.getEntity();
 				Double dis = p.getLocation().distance(le.getLocation());
-				Double hp = (le.getHealth()-e.getDamage()) / le.getMaxHealth() * 100;
+				Double hp = (le.getHealth()-e.getFinalDamage()) / le.getMaxHealth() * 100;
 				showDamage(p, hp, true, dis);
 
 			}
 		}
-		}
+            }
 	}
 
 	public static void showDamage(Player p, Double hp, Boolean Arrow, Double dis){
