@@ -6,11 +6,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import pedrxd.survival.Manager;
-import pedrxd.survival.api.ActionBar;
 
 public class ShowDamage {
-	
-	public static ActionBar tdamage = new ActionBar();
 	
 	
 	public static void onDamage(EntityDamageByEntityEvent e){
@@ -38,22 +35,23 @@ public class ShowDamage {
 	}
 
 	public static void showDamage(Player p, Double hp, Boolean Arrow, Double dis){
+		String message;
 		if(!Arrow){
 			if(hp <= 0){
-				tdamage.setMessage(Manager.getLang("d1"));
+				message = Manager.getLang("d1");
 
 			}else{
-				tdamage.setMessage(Manager.getLang("d2").replaceAll("%hp",  Integer.toString(hp.intValue())));
+				message = Manager.getLang("d2").replaceAll("%hp",  Integer.toString(hp.intValue()));
 			}
 			
 		}else{
 			if(hp <= 0){
-				tdamage.setMessage(Manager.getLang("d4").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue())));
+			    message = Manager.getLang("d4").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue()));
 			}else{
-				tdamage.setMessage(Manager.getLang("d3").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue())));
+				message = Manager.getLang("d3").replaceAll("%hp",  Integer.toString(hp.intValue())).replaceAll("%distance", Integer.toString(dis.intValue()));
 			}
 		}
-		tdamage.sendTo(p);
+		Manager.tapi.sendActionbar(p, message);
 	}
 	
 

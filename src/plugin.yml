@@ -2,6 +2,7 @@ main: pedrxd.survival.Manager
 name: Survival
 version: 1.3V
 author: Pedro Ruiz
+depend: [TitleManager]
 commands:
     mute:
         usage: /mute [<player>]

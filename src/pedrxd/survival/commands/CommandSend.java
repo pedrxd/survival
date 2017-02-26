@@ -17,7 +17,7 @@ import org.bukkit.plugin.Plugin;
 
 import pedrxd.survival.Manager;
 import pedrxd.survival.Players;
-import pedrxd.survival.api.ActionBar;
+
 
 public class CommandSend extends Players implements CommandExecutor {
 public Player p;
@@ -29,7 +29,6 @@ public static HashMap<Player, Integer> resquestTimeOut = new HashMap<Player, Int
 static TextComponent acceptmessage = new TextComponent(Manager.getLang("f9"));
 static TextComponent denymessage = new TextComponent(Manager.getLang("g1"));
 
-public static ActionBar waitingMe = new ActionBar();
 
 Plugin plugin;
 
@@ -156,8 +155,8 @@ Plugin plugin;
 	               for(Player on : Bukkit.getOnlinePlayers()){
 	            	   if(resquestTimeOut.containsKey(on)){
 	            		   int timeout = resquestTimeOut.get(on);
-	            		   waitingMe.setMessage(Manager.getLang("g8").replace("%timeout", Integer.toString(timeout)));
-	            		   waitingMe.sendTo(on);
+	            		   Manager.tapi.sendActionbar(on,Manager.getLang("g8").replace("%timeout", Integer.toString(timeout)));
+	            		  
 		            	   if(timeout <= 0){
 		            		   on.sendMessage(Manager.getLang("g7"));
 		            		   resquestList.get(on).sendMessage(Manager.getLang("g7"));

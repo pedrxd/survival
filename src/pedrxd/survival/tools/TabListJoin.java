@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import pedrxd.survival.Manager;
-import pedrxd.survival.api.TabMenu;
 
 
 public class TabListJoin {
@@ -17,10 +16,8 @@ public class TabListJoin {
 	public static void setTabList(Player p){
 		String header = ChatColor.translateAlternateColorCodes('&', Manager.config.getString("TabList.Header").replaceAll("%player", p.getName()));
 		String footer = ChatColor.translateAlternateColorCodes('&', Manager.config.getString("TabList.Footer").replaceAll("%player", p.getName()));
-		TabMenu tmjoin = new TabMenu();
-		tmjoin.setHead(header);
-		tmjoin.setFoot(footer);
-		tmjoin.sendTo(p);
+
+		Manager.tapi.setHeaderAndFooter(p, header, footer);
 	}
 	public static void editTabMenu(Player p, int i){
 		editors.put(p, i);

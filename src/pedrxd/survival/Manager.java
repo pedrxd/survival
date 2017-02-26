@@ -1,9 +1,11 @@
 package pedrxd.survival;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import io.puharesource.mc.titlemanager.api.v2.TitleManagerAPI;
 import pedrxd.survival.commands.*;
 import pedrxd.survival.listeners.OnChat;
 import pedrxd.survival.listeners.OnCommandExecute;
@@ -17,12 +19,13 @@ public class Manager extends JavaPlugin {
 	public static PluginFile home;
 	public static PluginFile config;
 	public static PluginFile lang;
-	
+	public static TitleManagerAPI tapi;
 	
 
 
 	@Override
 	public void onEnable() {
+		tapi = (TitleManagerAPI) Bukkit.getServer().getPluginManager().getPlugin("TitleManager");
 		registerEvent();
 		configLoad();
 		registerCommand();
@@ -70,9 +73,6 @@ public class Manager extends JavaPlugin {
 		config = new PluginFile(this, "config.yml", "config.yml");
 		home = new PluginFile(this, "home.yml");
 		lang = new PluginFile(this, "lang.yml", "lang.yml");
-		
-		
-	
 
 	}
 	public static String getLang(String index){
